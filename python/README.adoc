@@ -1,0 +1,8 @@
+= README
+
+Install avro:
+
+[source,shell]
+----
+$ pip install avro
+----
