@@ -1,0 +1,23 @@
+{
+  "namespace": "de.pilhuhn.kafka.play",
+  "type": "record",
+  "name": "test1",
+  "fields": [
+     {
+        "name": "aname",
+        "type": "string"
+     },
+     {
+        "name": "anumber",
+        "type": "int"
+     },
+     {
+        "name": "acheckbox",
+        "doc": "An optional field that could describe a checkbox, where true=checked",
+        "type": "boolean",
+        "default": "false"
+     }
+   ]
+}
+
+

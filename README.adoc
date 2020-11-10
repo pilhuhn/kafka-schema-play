@@ -1,0 +1,43 @@
+= Kafka schema playground
+
+This repository is to play around with Kafka Schemas and Schema validation
+
+* avro: Schema files
+* java: Sample java code to play around
+* python: Sample Python code to play around
+
+
+== Some links:
+
+* http://avro.apache.org
+** http://avro.apache.org/docs/current/spec.html
+* https://pypi.org/project/avro-validator/
+* https://www.apicur.io/registry/
+
+== Upload schema to registry
+
+The following assumes the registry set up via docker-compose
+
+[source,shell]
+----
+$ curl -X POST -H "Content-type:application/json; artifctType=AVRO" \
+    -H "X-Registry-ArtifactId: test1" \
+    -d @avro/test1.avsc \
+    http://localhost:18080/api/artifacts
+{"name":"test1","createdOn":1605005503037,"modifiedOn":1605005503037,"id":"test1","version":1,"type":"AVRO","globalId":1,"state":"ENABLED"}
+----
+
+Retrieve again:
+
+[source,shell]
+----
+$ curl http://localhost:18080/api/artifacts/test1
+----
+
+== Validation of data
+
+[source,shell]
+----
+$ pip install -U avro_validator
+$ avro_validator schema.avsc  data.json
+----
