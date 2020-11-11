@@ -17,10 +17,10 @@ python python/upload-schema.py
 
 testing:
 create message:
-python -m python.test-producer.py
+python -m python.test.test-producer.py
 
 consume message:
-python -m python.test-consumer.py
+python -m python.test.test-consumer.py
 
 If the format of the data is not formatted as the schema, exception will thrown
 
