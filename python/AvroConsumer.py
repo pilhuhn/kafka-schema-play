@@ -9,7 +9,7 @@ import io
 class AvroConsumer(Consumer):
 
     def __init__(self, consumer_settings):
-        schema_json = util.retrive_schema(settings.AVRO_SCHEMA_NAME)
+        schema_json = util.retrieve_schema(settings.AVRO_SCHEMA_NAME)
         schema = avro.schema.parse(schema_json)
 
         self.reader = avro.io.DatumReader(schema)

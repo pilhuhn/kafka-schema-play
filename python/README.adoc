@@ -9,19 +9,44 @@ Install packages:
 $ pipenv install --dev
 ----
 
-create a test topic:
+create a test topic: (this step is optional with Kafka installed via docker-compose)
+
+[source,shell]
+----
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-topic
+----
 
 upload schema:
-python python/upload-schema.py 
+
+[source,shell]
+----
+$ python python/upload-schema.py
+----
+
+update schema:
+
+[source,shell]
+----
+$ python python/update-schema.py
+----
+
+
 
 testing:
-create message:
-python -m python.test.test-producer.py
+create a message:
 
-consume message:
-python -m python.test.test-consumer.py
+[source,shell]
+----
+$ python -m python.test.test_producer
+----
 
-If the format of the data is not formatted as the schema, exception will thrown
+consume a message:
+
+[source,shell]
+----
+$ python -m python.test.test_consumer
+----
+
+If the data is not formatted according to the schema, an exception will be thrown.
 
 
