@@ -1,8 +1,27 @@
 = README
+start the server:
+docker-compose up
 
-Install avro:
+Install packages:
 
 [source,shell]
 ----
-$ pip install avro
+$ pipenv install --dev
 ----
+
+create a test topic:
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-topic
+
+upload schema:
+python python/upload-schema.py 
+
+testing:
+create message:
+python -m python.test.test-producer.py
+
+consume message:
+python -m python.test.test-consumer.py
+
+If the format of the data is not formatted as the schema, exception will thrown
+
+
