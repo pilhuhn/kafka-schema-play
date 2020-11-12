@@ -15,7 +15,7 @@
         "name": "acheckbox",
         "doc": "An optional field that could describe a checkbox, where true=checked",
         "type": "boolean",
-        "default": "false"
+        "default": false
      }
    ]
 }
