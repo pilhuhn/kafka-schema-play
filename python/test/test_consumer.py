@@ -1,4 +1,5 @@
 import avro.schema
+from confluent_kafka import KafkaError
 from .. import AvroConsumer, settings
 
 consumer_settings = {
