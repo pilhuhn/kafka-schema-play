@@ -31,7 +31,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 
   postgres:
-    image: postgres
+    image: postgres:12
     ports:
       - "5432:5432"
     environment:
@@ -47,6 +47,10 @@ services:
       QUARKUS_DATASOURCE_URL: 'jdbc:postgresql://postgres/postgres'
       QUARKUS_DATASOURCE_USERNAME: postgres
       QUARKUS_DATASOURCE_PASSWORD: postgres
+      QUARKUS_PROFILE: prod
+      KAFKA_BOOTSTRAP_SERVERS: localhost:9092
+      APPLICATION_ID: registry_id
+      APPLICATION_SERVER: localhost:9000
 
 #  jaeger:
 #    image: jaegertracing/all-in-one:1.17

@@ -17,13 +17,21 @@ public class KafkaSender {
 
     @Inject
     @Channel("outChan")
-    Emitter emitter;
+    Emitter<Foo> emitter;
 
     @PUT
     public void sendToKafka() {
 
-        emitter.send("Hello World");
+        Foo foo = new Foo();
+        foo.foo = "Hello Foo";
+        foo.bar = 42;
+
+        emitter.send(foo);
 
     }
 
+    public static class Foo {
+        public String foo;
+        public int bar;
+    }
 }
